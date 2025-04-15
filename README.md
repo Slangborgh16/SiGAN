@@ -9,32 +9,47 @@ Please cite if you use our code on your research.
 We modify the code forked from https://github.com/david-gpu/srez to implement pairwise learning architecture for face hallucination.
 
 # Reqirements
-Tensorflow 1.13~ 1.08. Not support tensorflow 2.0 yet.
+
+Tensorflow 1.08-1.12 - Does not support tensorflow 2.0 yet.
 
 # Pretrained Model
+
 The trained model for super-resolve 32x32 to 128x128 image can be downloaded from
 https://drive.google.com/file/d/1qvWqsRfP2hZrZzXOG4NmZRuxb7fHkFAe/view?usp=sharing
 
 # How to use
-### Create a conda env
-1.Install Anaconda3 and create a python3.6 env by 
-> conda create -n sigan python=3.6
-source activate sigan
 
+## Setup
 
-2.Install tensorflow-gpu package by
-> conda install tensorflow-gpu==1.12
+1. Create a Python 3.6 conda environment
 
+```bash
+conda create -n sigan python=3.6
+conda activate sigan
+```
 
-3.install jupyter package by
-> conda install jupyter
-jupyter notebook --ip="your  ip" --port=your_port
+2. Install requirements
 
-4.In the Browser shown in your system, open and run 
+```bash
+pip install -r requirements.txt
+conda install jupyter
+conda install -c conda-forge cudatoolkit=9.0 cudnn=7
+```
 
->srez_train_sia.ipynb
+3. Launch Jupyter notebook
+
+```bash
+jupyter-notebook
+```
+
+## Training
+
+Open and run `srez_train_sia.ipynb` in Jupyter
+
+Requires the CASIA-WebFace dataset.
 
 ## Testing your own image with trained model
+
 Under the jupyter notebook, you can run the following notebook to see the result.
 >test_sia.ipynb
 
@@ -44,6 +59,7 @@ Or directly run
 to produce the super-resolved images sized of 128x128 from LR inputs 32x32.
 
 # Dataset
+
 Our dataset is based on "CASIA-WebFaces".
 
 # Citation
